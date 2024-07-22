@@ -4,13 +4,8 @@ public class Permutation {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in); 
     	String str = s.next();
-        permutation(str);
-    }
-
-    public static void permutation(String str) {
         permutation(str, "");
     }
-
     private static void permutation(String str, String prefix) {
         if (str.length() == 0) {
             System.out.println(prefix);
