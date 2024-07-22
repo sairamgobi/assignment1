@@ -1,29 +1,24 @@
-import java.util.*; 
-class Permutation{ 
-static void permute(String s, String answer) 
-{ 
-	if (s.length() == 0) 
-	{ 
-		System.out.print(answer + " "); 
-		return; 
-	} 
-		for(int i = 0 ;i < s.length(); i++) 
-	{ 
-		char ch = s.charAt(i); 
-		String left_substr = s.substring(0, i); 
-		String right_substr = s.substring(i + 1); 
-		String rest = left_substr + right_substr; 
-		permute(rest, answer + ch); 
-	} 
-} 
-public static void main(String args[]) 
-{ 
-	Scanner scan = new Scanner(System.in);	 
-	String s; 
-	String answer=""; 
-	System.out.print( "Enter the string : "); 
-	s = scan.next(); 
-	System.out.print( "\nAll possible strings are : "); 
-	permute(s, answer); 
-} 
-} 
+package s1;
+import java.util.*;
+public class Permutation {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in); 
+    	String str = s.next();
+        permutation(str);
+    }
+
+    public static void permutation(String str) {
+        permutation(str, "");
+    }
+
+    private static void permutation(String str, String prefix) {
+        if (str.length() == 0) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < str.length(); i++) {
+                String rem = str.substring(0, i) + str.substring(i + 1);
+                permutation(rem, prefix + str.charAt(i));
+            }
+        }
+    }
+}
